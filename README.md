@@ -25,6 +25,8 @@ Versions:
 - `latest`
 - `2024.1`
 
+(View all available versions in the [GitHub container registry](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-hacks/versions?filters%5Bversion_type%5D=tagged))
+
 For instance, to use the latest JVM linter on a Java project:
 
 ```yaml
