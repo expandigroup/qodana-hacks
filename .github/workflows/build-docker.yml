@@ -33,7 +33,7 @@ jobs:
         - js
         tag:
         - latest
-        - 2024.01
+        - 2024.1
 
     steps:
     - name: Checkout repository
