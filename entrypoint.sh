@@ -28,4 +28,6 @@ else
   args=("$@")
 fi
 
+echo "Running Qodana with args:" "${args[@]}"
+
 exec qodana.orig "${args[@]}"
