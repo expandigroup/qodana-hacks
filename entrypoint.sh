@@ -7,15 +7,14 @@ if [[ -n "${SUBPROJECT_DIR:-}" ]]; then
     exit 1
   fi
 
-  declare -a args=()
+  args=("--project-dir" "$SUBPROJECT_DIR")
+
   while [[ $# -gt 0 ]]; do
     case "$1" in
     --project-dir | -i)
-      args+=("--project-dir" "$SUBPROJECT_DIR")
       shift 2
       ;;
     --project-dir=*)
-      args+=("--project-dir" "$SUBPROJECT_DIR")
       shift
       ;;
     *)
