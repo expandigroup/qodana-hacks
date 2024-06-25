@@ -16,9 +16,16 @@ Replace `jvm-latest` with the desired version.
 Languages:
 
 - `jvm`
-- `js`
 - `python`
 - `go`
+- `js`
+- `php`
+- `dotnet`
+- `jvm-community`
+- `python-community`
+- `jvm-android`
+- `cdnet`
+- `clang`
 
 Versions:
 

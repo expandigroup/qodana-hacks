@@ -29,6 +29,13 @@ jobs:
         - python
         - go
         - js
+        - php
+        - dotnet
+        - jvm-community
+        - python-community
+        - jvm-android
+        - cdnet
+        - clang
         tag:
         - latest
         - 2024.1
