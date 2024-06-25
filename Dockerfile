@@ -1,4 +1,4 @@
 ARG IMAGE
 FROM $IMAGE
-RUN mv /opt/idea/bin/qodana /opt/idea/bin/qodana.orig
-COPY entrypoint.sh /opt/idea/bin/qodana
+COPY entrypoint.sh /entrypoint.sh
+RUN QODANA=$(which qodana) && mv "$QODANA" "${QODANA}.orig" && mv /entrypoint.sh "$QODANA"
