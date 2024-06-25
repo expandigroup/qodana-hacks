@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "Subproject dir: ${SUBPROJECT_DIR:-}"
+
 if [[ -n "${SUBPROJECT_DIR:-}" ]]; then
   if [[ ! -d "$SUBPROJECT_DIR" ]]; then
     echo "Error: SUBPROJECT_DIR does not exist: $SUBPROJECT_DIR"
