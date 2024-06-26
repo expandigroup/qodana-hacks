@@ -8,37 +8,29 @@ Qodana linters, with a few hacks to make them work with monorepos containing mul
 
 ```yaml
 version: 1
-linter: ghcr.io/expandigroup/qodana-hacks:LANGUAGE-VERSION
+linter: ghcr.io/expandigroup/qodana-$LANGUAGE:$VERSION
 ```
 
-Replace `jvm-latest` with the desired version.
+Available patched images:
 
-Languages:
+- [`qodana-jvm`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-jvm)
+- [`qodana-python`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-python)
+- [`qodana-go`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-go)
+- [`qodana-js`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-js)
+- [`qodana-php`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-php)
+- [`qodana-dotnet`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-dotnet)
+- [`qodana-jvm-community`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-jvm-community)
+- [`qodana-python-community`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-python-community)
+- [`qodana-jvm-android`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-jvm-android)
+- [`qodana-cdnet`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-cdnet)
+- [`qodana-clang`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-clang)
 
-- `jvm`
-- `python`
-- `go`
-- `js`
-- `php`
-- `dotnet`
-- `jvm-community`
-- `python-community`
-- `jvm-android`
-- `cdnet`
-- `clang`
-
-Versions:
-
-- `latest`
-- `2024.1`
-
-(View all available versions in the [GitHub container registry](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-hacks/versions?filters%5Bversion_type%5D=tagged))
 
 For instance, to use the latest JVM linter on a Java project:
 
 ```yaml
 version: 1
-linter: ghcr.io/expandigroup/qodana-hacks:jvm-latest
+linter: ghcr.io/expandigroup/qodana-jvm:latest
 ```
 
 # Usage in monorepos
