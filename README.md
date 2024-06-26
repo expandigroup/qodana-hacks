@@ -25,7 +25,6 @@ Available patched images:
 - [`qodana-cdnet`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-cdnet)
 - [`qodana-clang`](https://github.com/expandigroup/qodana-hacks/pkgs/container/qodana-clang)
 
-
 For instance, to use the latest JVM linter on a Java project:
 
 ```yaml
@@ -37,3 +36,6 @@ linter: ghcr.io/expandigroup/qodana-jvm:latest
 
 In a monorepo, place the `qodana.yml` file in the project directory, and specify the hacked linter in the GitHub Actions
 workflow.
+
+You can specify `-e SUBPROJECT_DIR=path/to/project` to specify a project to be scanned. It will be scanned while keeping
+still mounting the entire repository.
