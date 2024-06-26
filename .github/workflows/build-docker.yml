@@ -9,12 +9,6 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,6 +38,9 @@ jobs:
     env:
       # clang and cdnet 2024.1 are EAPs, don't build images for them
       SKIP: ${{ (matrix.language == 'clang' || matrix.language == 'cdnet') && matrix.tag == '2024.1' }}
+
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository_owner }}/qodana-${{ matrix.language }}
 
     steps:
     - name: Checkout repository
@@ -92,8 +89,7 @@ jobs:
         push: ${{ github.event_name != 'pull_request' }}
         build-args: IMAGE=jetbrains/qodana-${{ matrix.language }}:${{ matrix.tag }}
         tags: |
-          ${{ env.REGISTRY }}/${{ github.repository_owner }}/qodana-${{ matrix.language }}:${{ matrix.tag }}
-          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.language }}-${{ matrix.tag }}
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.tag }}
         labels: ${{ steps.meta.outputs.labels }}
         platforms: linux/amd64,linux/arm64
         cache-from: type=gha
