@@ -43,7 +43,7 @@ jobs:
 
     env:
       # clang and cdnet 2024.1 are EAPs, don't build images for them
-      SKIP: ${{ matrix.language != 'clang' || matrix.language != 'cdnet' || matrix.tag != '2024.1' }}
+      SKIP: ${{ (matrix.language == 'clang' || matrix.language == 'cdnet') && matrix.tag == '2024.1' }}
 
     steps:
     - name: Checkout repository
