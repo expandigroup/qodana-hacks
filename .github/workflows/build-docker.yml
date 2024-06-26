@@ -91,7 +91,9 @@ jobs:
         context: .
         push: ${{ github.event_name != 'pull_request' }}
         build-args: IMAGE=jetbrains/qodana-${{ matrix.language }}:${{ matrix.tag }}
-        tags: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.language }}-${{ matrix.tag }}"
+        tags: |
+          ${{ env.REGISTRY }}/qodana-${{ matrix.language }}:${{ matrix.tag }}
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.language }}-${{ matrix.tag }}
         labels: ${{ steps.meta.outputs.labels }}
         platforms: linux/amd64,linux/arm64
         cache-from: type=gha
