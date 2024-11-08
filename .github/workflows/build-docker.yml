@@ -93,7 +93,9 @@ jobs:
         tags: |
           ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.tag }}
         labels: ${{ steps.meta.outputs.labels }}
-        platforms: linux/amd64,linux/arm64
+        platforms: |
+          linux/amd64
+          ${{ matrix.language != 'jvm-android' && 'linux/arm64' || '' }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
