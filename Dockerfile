@@ -27,6 +27,10 @@ FROM base as base-clang
 
 FROM base AS base-python
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+ENV XDG_CACHE_HOME="/data/cache/cache"
+ENV XDG_DATA_HOME="/data/cache/share"
+ENV XDG_CONFIG_HOME="/data/cache/config"
+ENV XDG_BIN_HOME="/data/cache/bin"
 
 ############################################################################
 
