@@ -2,6 +2,8 @@
 
 Qodana linters, with a few hacks to make them work with monorepos containing multiple projects.
 
+The Python linter additionally installs [`uv` and `uvx`](https://docs.astral.sh/uv/) and adds `.venv/bin` in the project directory to `$PATH`, so the virtualenv interpreter is used first.
+
 ## Usage
 
 `qodana.yml`:
