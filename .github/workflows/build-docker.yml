@@ -99,3 +99,21 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
+  simulate-activity:
+    name: "Simulate repo activity"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Simulate repository activity to keep schedule active
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull origin simulate-activity || true
+          git checkout simulate-activity
+          git commit --amend --no-edit
+          git push origin simulate-activity --force || true
+
