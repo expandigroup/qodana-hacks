@@ -29,6 +29,13 @@ else
   args=("$@")
 fi
 
+# Make sure Qodana prefers the virtualenv Python
+if [[ "${LINTER:-}" == "python" ]]; then
+  VENV_BIN_DIR="/data/project/${SUBPROJECT_DIR:-}/.venv/bin"
+  echo "Adding virtualenv directory to PATH: $VENV_BIN_DIR"
+  export PATH="$VENV_BIN_DIR:$PATH"
+fi
+
 echo "Running Qodana with args:" "${args[@]}"
 
 exec qodana.orig "${args[@]}"
