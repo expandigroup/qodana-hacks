@@ -33,11 +33,11 @@ jobs:
         - clang
         tag:
         - latest
-        - 2024.1
+        - 2024.2
 
     env:
-      # clang and cdnet 2024.1 are EAPs, don't build images for them
-      SKIP: ${{ (matrix.language == 'clang' || matrix.language == 'cdnet') && matrix.tag == '2024.1' }}
+      # clang and cdnet are EAPs, don't build images for them
+      SKIP: ${{ (matrix.language == 'clang' || matrix.language == 'cdnet') && matrix.tag == '2024.2' }}
 
       REGISTRY: ghcr.io
       IMAGE_NAME: ${{ github.repository_owner }}/qodana-${{ matrix.language }}
